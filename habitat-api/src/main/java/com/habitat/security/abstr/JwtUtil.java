@@ -1,11 +1,9 @@
 package com.habitat.security.abstr;
 
-import org.springframework.security.core.userdetails.UserDetails;
-
 public interface JwtUtil {
-    String extractUserName(String token);
+    String getUsernameFromToken(String token);
 
-    String generateToken(UserDetails userDetails);
+    String generateToken(String userName);
 
-    boolean isTokenValid(String token, UserDetails userDetails);
+    boolean validateToken(String token);
 }

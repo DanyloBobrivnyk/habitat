@@ -30,7 +30,4 @@ public class UserRegistrationRequestDto {
     @Size(min = 6, max = 100)
     private String lastName;
 
-    @NotBlank
-    @Size(min = 6, max = 1000)
-    private String shippingAddress;
 }
