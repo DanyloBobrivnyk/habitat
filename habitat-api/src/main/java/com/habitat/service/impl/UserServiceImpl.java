@@ -25,12 +25,14 @@ public class UserServiceImpl implements UserService {
             throw new RegistrationException("Unable to complete registration.");
         }
 
+        Role role = new Role(Role.RoleName.PAID_USER);
+
         User user = new User();
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setEmail(request.getEmail());
         user.setFirstName(request.getFirstName());
         user.setLastName(request.getLastName());
-        user.setRole(Role.ADMIN);
+        user.setRole(role);
         User savedUser = userRepository.save(user);
         return userMapper.toUserResponse(savedUser);
 
